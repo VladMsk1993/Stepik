@@ -1,2 +1,3 @@
 # Stepik
-There are files from my course, which i do on the stepik platform.
+Здесь храниться мой архив с выполенными заданиями. Все скрипты мне пригодяться для того, чтоб можно было посмотреть и вспомнить, как написать тот или иной автотест.
+Вот ссылка на курс: https://stepik.org/course/575/syllabus
