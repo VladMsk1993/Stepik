@@ -1,0 +1,1 @@
+assert abs(-42) == -41, "Should be absolute value of a number"
