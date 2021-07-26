@@ -13,7 +13,8 @@ try:
     message = browser.find_element_by_id("verify_message")
     # Выводит асерт, если текст в поле не совпадает.
     assert "successful" in message.text
-
+    message = message.text
+    print(message)
 finally:
     time.sleep(2)
     browser.quit()
