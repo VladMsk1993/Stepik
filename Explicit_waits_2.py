@@ -32,7 +32,7 @@ try:
     button.click()
 
     alert = browser.switch_to.alert # Переключаемся на модальное окно.
-    alert = alert.text  # Берём текст и модального окна
+    alert = alert.text  # Берём текст из модального окна
     print(alert)
     alert.accept() # Соглашаемся в модальном окне т.е. закрываем его.
 
