@@ -2,8 +2,6 @@ import time, math, pytest
 from selenium import webdriver
 
 
-answer = math.log(int(time.time()))
-
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
@@ -12,13 +10,24 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-@pytest.mark.parametrize('qparam', ["236895", "236896", "236897", "236898", "236899", "236903", "236904", "236905"])
+# "236897", "236898", "236899", "236903", "236904", "236905"
+
+
+@pytest.mark.parametrize('qparam', ["236895", "236896"])
 def test_input_time_into_area(browser, qparam):
-    link = f"https://stepik.org/lesson/{qparam}/step/1//"
+    link = f"https://stepik.org/lesson/{qparam}/step/1/"
     browser.get(link)
     browser.implicitly_wait(3)
-    input_param = browser.find_element_by_css_selector("#ember184")
+    answer = math.log(int(time.time()))
+
+    input_param = browser.find_element_by_css_selector(".ember-text-area.ember-view")
     input_param.send_keys(answer)
+
     button = browser.find_element_by_css_selector(".submit-submission")
     button.click()
 
+    feed_back = browser.find_element_by_css_selector(".smart-hints__hint")
+    feed_back = feed_back.text
+    right_result = "Correct!"
+    assert right_result == feed_back, f"Something is wrong expected '{right_result}' but we have '{feed_back}'"
+    time.sleep(5)
